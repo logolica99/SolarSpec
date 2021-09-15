@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
 
 
         width: "100%",
-        height: 80,
+        height: 100,
         margin: 0,
         padding: 0,
 
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     title: {
         marginTop:20,
         fontFamily: "montserrat-bold",
-        fontSize:20,
+        fontSize:26,
 
 
         color: "#fff"

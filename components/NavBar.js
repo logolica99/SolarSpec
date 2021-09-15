@@ -1,24 +1,24 @@
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import React from 'react';
 
 
 export default function NavBar({navigation}) {
     return (
         <View style={styles.Navbar}>
-            <TouchableOpacity style={styles.home} onPress={() => { navigation.navigate("Home") }}>
+            <TouchableHighlight style={styles.home} underlayColor='#ffffff80' onPress={() => { navigation.navigate("Home") }}>
 
              
 
                     <Text style={styles.navButton}>Home</Text>
            
-            </TouchableOpacity>
+            </TouchableHighlight>
             <View style={styles.gap}></View>
-            <TouchableOpacity style={styles.saved} onPress={() => { navigation.navigate("Saved") }}>
+            <TouchableHighlight style={styles.saved} underlayColor='#ffffff80' onPress={() => { navigation.navigate("Saved") }}>
 
     
                     <Text style={styles.navButton} >Saved</Text>
        
-            </TouchableOpacity>
+            </TouchableHighlight>
 
 
         </View>
@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
 
         width: "50%",
         alignItems: "center",
+        justifyContent: "center",
+        height: "100%",
 
     },
     gap:{
@@ -53,6 +55,8 @@ const styles = StyleSheet.create({
     },
     saved: {
         width: "48%",
-        alignItems: "center"
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100%",
     }
 })

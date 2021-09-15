@@ -33,20 +33,21 @@ export default function App() {
   if (fontsLoaded) {
 
     return (
+  
       <NavigationContainer>
         <Tab.Navigator tabBar={props => <NavBar {...props} />}>
 
           <Tab.Screen
             name="Home"
             component={Home}
-            
-            options={{ headerShown:false}}
+
+            options={{ headerShown: false }}
           />
 
           <Tab.Screen
             name="Saved"
             component={Saved}
-            options={{ headerShown:false}}
+            options={{ headerShown: false }}
           />
 
         </Tab.Navigator>
