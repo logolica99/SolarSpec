@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import * as Location from 'expo-location';
+
 
 import Heading from '../components/Heading';
-
+import GoogleMap from './GoogleMap';
 
 
 
@@ -12,28 +12,9 @@ import Heading from '../components/Heading';
 
 export default function Home() {
 
-    const [location, setLocation] = useState({});
+    const [location, setLocation] = useState({coords:{latitude:0}});
 
-    useEffect(()=>{
-        getLocation();
-    },[])
-
-
-
-    const getLocation = async () => {
-
-        let { status } = await Location.requestForegroundPermissionsAsync();
-        if (status !== 'granted') {
-            console.warn('Permission to access location was denied');
-            return;
-        }
-
-        const getlocation = await Location.getCurrentPositionAsync();
-      
-        setLocation(getlocation)
-        console.log(location)
-
-    }
+   
 
 
 
@@ -44,8 +25,7 @@ export default function Home() {
 
             <Heading />
             <Text>Home</Text>
-            <Button title="hello" onPress={getLocation} />
-
+            <GoogleMap/>
         </View>
     )
 }
