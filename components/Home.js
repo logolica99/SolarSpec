@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 
 import Heading from '../components/Heading';
-import GoogleMap from './GoogleMap';
+import MapScreen from './MapScreen';
+
 
 
 
@@ -12,7 +13,12 @@ import GoogleMap from './GoogleMap';
 
 export default function Home() {
 
-    const [location, setLocation] = useState({coords:{latitude:0}});
+    const [region, setRegion] = useState({
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0073077622282404775,
+        longitudeDelta: 0.007763318717479706,
+    })
 
    
 
@@ -22,10 +28,11 @@ export default function Home() {
 
     return (
         <View style={styles.container}>
-
+            
             <Heading />
-            <Text>Home</Text>
-            <GoogleMap/>
+            
+            <MapScreen region={region} setRegion={setRegion}/>
+            
         </View>
     )
 }

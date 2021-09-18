@@ -4,7 +4,8 @@ import * as Location from 'expo-location';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 
-export default function GoogleMap() {
+
+export default function GoogleMap({region,setRegion}) {
 
     useEffect(() => {
         getLocation();
@@ -22,30 +23,23 @@ export default function GoogleMap() {
 
         let getlocation = await Location.getCurrentPositionAsync();
 
-        const newRegion = { ...initialRegion }
+        const newRegion = { ...region }
         newRegion["latitude"] = getlocation.coords.latitude;
         newRegion["longitude"] = getlocation.coords.longitude;
-        setInitialRegion(newRegion)
+        setRegion(newRegion)
 
 
 
     }
-    const [initialRegion, setInitialRegion] = useState({
-        latitude: 37.78825,
-        longitude: -122.4324,
-        latitudeDelta: 0.0073077622282404775,
-        longitudeDelta: 0.007763318717479706,
-    })
 
-    const [hello, setHello] = useState({})
 
-    const onRegionChange = (newRegion) => {
-        console.log(newRegion)
-       
+    const [hello, setHello] = useState({});
+
+
+    const regionChange = newRegion => {
+        setRegion(newRegion);
 
     }
-
-
 
 
     return (
@@ -55,11 +49,18 @@ export default function GoogleMap() {
             <MapView
                 provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                 style={styles.map}
-                region={initialRegion}
-                onRegionChange={onRegionChange}
+                region={region}
+                onRegionChangeComplete={regionChange}
+
             >
             </MapView>
-            <Button title="hello" onPress={getLocation} />
+
+            <Button
+                title="Get your location"
+                onPress={getLocation}
+               
+            />
+
         </View>
     )
 }
@@ -67,9 +68,9 @@ export default function GoogleMap() {
 
 const styles = StyleSheet.create({
     container: {
-        ...StyleSheet.absoluteFillObject,
-        marginTop: 200,
-        height: 400,
+       
+
+        height: "50%",
         width: "100%",
         justifyContent: 'flex-end',
         alignItems: 'center',
@@ -77,4 +78,6 @@ const styles = StyleSheet.create({
     map: {
         ...StyleSheet.absoluteFillObject,
     },
+
+
 });
