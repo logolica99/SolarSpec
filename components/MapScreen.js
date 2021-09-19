@@ -8,6 +8,11 @@ import GoogleMap from './GoogleMap';
 
 
 const MapScreen = ({ region, setRegion,setAreaDialog }) => {
+
+
+
+    
+
     return (
 
         <View style={styles.container}>

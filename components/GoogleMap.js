@@ -5,12 +5,24 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 
 
-export default function GoogleMap({region,setRegion}) {
+export default function GoogleMap({ region, setRegion }) {
 
     useEffect(() => {
         getLocation();
+
     }, [])
 
+    
+
+    const [markerPosition, setMarkerPosition] = useState({
+        "latitude": region.latitude,
+        "longitude": region.longitude
+    });
+    const setMarker = (e) => {
+
+        setMarkerPosition(e.nativeEvent.coordinate)
+
+    }
 
 
     const getLocation = async () => {
@@ -33,7 +45,7 @@ export default function GoogleMap({region,setRegion}) {
     }
 
 
-    const [hello, setHello] = useState({});
+
 
 
     const regionChange = newRegion => {
@@ -51,14 +63,17 @@ export default function GoogleMap({region,setRegion}) {
                 style={styles.map}
                 region={region}
                 onRegionChangeComplete={regionChange}
+                onPress={setMarker}
 
             >
+                <Marker coordinate={markerPosition} />
             </MapView>
+
 
             <Button
                 title="Get your location"
                 onPress={getLocation}
-               
+
             />
 
         </View>
@@ -68,7 +83,7 @@ export default function GoogleMap({region,setRegion}) {
 
 const styles = StyleSheet.create({
     container: {
-       
+
 
         height: "50%",
         width: "100%",
