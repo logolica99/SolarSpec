@@ -1,20 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
 import GoogleMap from './GoogleMap';
 
 
 
-const MapScreen = ({ region, setRegion }) => {
+
+
+
+const MapScreen = ({ region, setRegion,setAreaDialog }) => {
     return (
 
         <View style={styles.container}>
+          
             <Text style={styles.Info}>Choose your location</Text>
             <GoogleMap region={region} setRegion={setRegion} />
-           
-           {/* // check button */}
+            
+
+            {/* // check button */}
             <View style={styles.checkContainer}>
 
-                <TouchableHighlight style={styles.checkTouch}  underlayColor='#593BAC70' onPress={()=>console.log("gamer")} >
+                <TouchableHighlight style={styles.checkTouch} underlayColor='#593BAC70' onPress={() => setAreaDialog(true)} >
                     <Text style={styles.checkBtn}>Check Data</Text>
                 </TouchableHighlight>
             </View>
@@ -43,20 +48,20 @@ const styles = StyleSheet.create({
 
         fontSize: 16,
 
-        
-    },
-     checkTouch: {
 
-        paddingVertical:10,
-        paddingHorizontal:20,
+    },
+    checkTouch: {
+
+        paddingVertical: 10,
+        paddingHorizontal: 20,
         backgroundColor: "#593BAC",
-        borderRadius:10,
-     },
+        borderRadius: 10,
+    },
     checkContainer: {
         width: "100%",
         alignItems: "center",
-        marginTop:"18%"
-       
+        marginTop: "18%"
+
     }
 })
 

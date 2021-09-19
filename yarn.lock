@@ -4947,6 +4947,11 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
 
+"react-native-dialog@^9.1.0":
+  "integrity" "sha512-/JpNxCXfGPEdYnoDtBrPW0bCIZA13XYhwfQ3vZf4Eth23QX1udlDktdivML6XTlmdgErkuJFqycKXFwGEtAeEQ=="
+  "resolved" "https://registry.npmjs.org/react-native-dialog/-/react-native-dialog-9.1.0.tgz"
+  "version" "9.1.0"
+
 "react-native-google-places-autocomplete@^2.4.1":
   "integrity" "sha512-NJrzZ5zsguhTqe0C5tIW9PfxOn2wkWDiGYIBFksHzFOIIURxFPUlO0cJmfOjs5CBIDtMampgNXBdgADExBen5w=="
   "resolved" "https://registry.npmjs.org/react-native-google-places-autocomplete/-/react-native-google-places-autocomplete-2.4.1.tgz"
@@ -4990,7 +4995,7 @@
     "prop-types" "^15.6.0"
     "react-timer-mixin" "^0.13.4"
 
-"react-native@*", "react-native@>= 0.51", "react-native@>= 0.59", "react-native@>=0.62.0-rc.0 <0.64.0", "react-native@https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz":
+"react-native@*", "react-native@>= 0.51", "react-native@>= 0.59", "react-native@>=0.62.0-rc.0 <0.64.0", "react-native@>=0.63.0", "react-native@https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz":
   "integrity" "sha512-qWR6pcG4yDu/Rthm+DvAS017rL38LbZFnJv/k4HL4ZUH/WhKuqC+stD7TlpaOBb3N2bkydm9s+GCa14T41MLEg=="
   "resolved" "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz"
   "version" "0.63.2"
