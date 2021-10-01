@@ -5160,6 +5160,11 @@ react-native-maps@0.28.0:
   dependencies:
     "@types/geojson" "^7946.0.7"
 
+react-native-placesearch@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-placesearch/-/react-native-placesearch-3.0.3.tgz#435ae312cdb7ccc396625d1dddda80e08753effb"
+  integrity sha512-eL8MAEx4RGpHpfTyLTAbnA30KMyr915CBSP6xpv0ITKf+OCZX3XM1MWBia1UE4MABcXm3RkM0EJTNviBU2YmHw==
+
 react-native-safe-area-context@3.2.0:
   version "3.2.0"
   resolved "https://registry.npmjs.org/react-native-safe-area-context/-/react-native-safe-area-context-3.2.0.tgz"

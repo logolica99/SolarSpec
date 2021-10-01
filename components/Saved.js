@@ -6,7 +6,7 @@ import Heading from './Heading';
 import DataScreen from './DataScreen';
 
 
-export default function Saved({ totalSaved, positions, showSaveList, setShowSaveList }) {
+export default function Saved({ totalSaved, positions, showSaveList, setShowSaveList,powerAmount, setPowerAmount }) {
 
     const [showSave, setShowSave] = useState(false)
 
@@ -17,6 +17,7 @@ export default function Saved({ totalSaved, positions, showSaveList, setShowSave
         setShowSaveList(false)
         setShowDataScreen(true)
         setCurrentPosition(position)
+        setPowerAmount(position.power)
 
     }
 
@@ -80,14 +81,14 @@ export default function Saved({ totalSaved, positions, showSaveList, setShowSave
                 return (
                     <ScrollView>
 
-                        <DataScreen markerPosition={currentPosition} area={1} showSave={showSave} powerAmount={currentPosition.power}/>
+                        <DataScreen markerPosition={currentPosition} area={1} showSave={showSave} powerAmount={powerAmount}/>
                     </ScrollView>
                 )
             }else{
                 return (
                     <ScrollView>
 
-                        <DataScreen markerPosition={currentPosition} area={0} showSave={showSave} powerAmount={currentPosition.power}/>
+                        <DataScreen markerPosition={currentPosition} area={0} showSave={showSave} powerAmount={powerAmount}/>
                     </ScrollView>
                 )
             }
@@ -156,7 +157,7 @@ const styles = StyleSheet.create({
     power: {
         color: "white",
         fontFamily: "montserrat-bold",
-        fontSize: 35,
+        fontSize: 25,
     },
     powerUnit: {
 

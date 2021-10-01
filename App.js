@@ -37,6 +37,7 @@ export default function App() {
   const [totalSaved, setTotalSaved] = useState(0);
   const [positions, setPositions] = useState([])
   const [showSaveList, setShowSaveList] = useState(true)
+  const [powerAmount, setPowerAmount] = useState(0)
 
 
   const getTotalSaved = async () => {
@@ -75,11 +76,11 @@ export default function App() {
   }
 
   useEffect(() => {
-   getTotalSaved()
+    getTotalSaved()
     getSavedPositions();
 
 
-  },[])
+  }, [])
 
 
   if (fontsLoaded) {
@@ -87,7 +88,7 @@ export default function App() {
     return (
 
       <NavigationContainer>
-        <Tab.Navigator tabBar={props => <NavBar {...props} setHomeScreen={setHomeScreen} setDataScreen={setDataScreen} setAreaDialog={setAreaDialog} setArea={setArea} setShowSaveList={setShowSaveList}/>}>
+        <Tab.Navigator tabBar={props => <NavBar {...props} setHomeScreen={setHomeScreen} setDataScreen={setDataScreen} setAreaDialog={setAreaDialog} setArea={setArea} setShowSaveList={setShowSaveList} />}>
 
           <Tab.Screen
             name="Home"
@@ -102,16 +103,19 @@ export default function App() {
               setPositions={setPositions}
               totalSaved={totalSaved}
               setTotalSaved={setTotalSaved}
-              area={area} 
+              area={area}
               setArea={setArea}
-              
+              powerAmount={powerAmount}
+              setPowerAmount={setPowerAmount}
+
             />}
             options={{ headerShown: false }}
           />
 
           <Tab.Screen
             name="Saved"
-            children={() => <Saved positions={positions} totalSaved={totalSaved} showSaveList={showSaveList} setShowSaveList={setShowSaveList}/>}
+            children={() => <Saved positions={positions} totalSaved={totalSaved} showSaveList={showSaveList} setShowSaveList={setShowSaveList} powerAmount={powerAmount}
+              setPowerAmount={setPowerAmount} />}
             options={{ headerShown: false }}
           />
 

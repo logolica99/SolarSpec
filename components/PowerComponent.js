@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, FlatList } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export default function PowerComponent({ powerAmount, area, markerPosition, totalSaved, setTotalSaved, setPositions, showSave,setArea }) {
 
+    const calculatePower = ()=>{
+        let power = powerAmount*area;
+       
+        return power.toFixed(2)
+    }
     const TotalPower = () => {
         if (area) {
             return (
-                <Text style={styles.power}>{powerAmount * area} W</Text>
+                <Text style={styles.power}>{calculatePower()} W</Text>
             )
         } else {
             return (

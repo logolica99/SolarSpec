@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, FlatList } from 'react-native';
 import Dialog from "react-native-dialog";
+
+
 
 
 
@@ -10,7 +12,7 @@ import DataScreen from './DataScreen';
 
 
 
-export default function Home({ HomeScreen, setHomeScreen, dataScreen, setDataScreen, areaDialog, setAreaDialog, totalSaved, setTotalSaved, setPositions, area, setArea }) {
+export default function Home({ HomeScreen, setHomeScreen, dataScreen, setDataScreen, areaDialog, setAreaDialog, totalSaved, setTotalSaved, setPositions, area, setArea, powerAmount, setPowerAmount }) {
 
     const [region, setRegion] = useState({
         latitude: 37.78825,
@@ -22,7 +24,7 @@ export default function Home({ HomeScreen, setHomeScreen, dataScreen, setDataScr
         "latitude": region.latitude,
         "longitude": region.longitude
     });
-    const [powerAmount,setPowerAmount] = useState(0)
+
 
 
 
@@ -43,12 +45,20 @@ export default function Home({ HomeScreen, setHomeScreen, dataScreen, setDataScr
         if (HomeScreen) {
             return (
                 <View>
+
+
+
+
+
+
+
                     <MapScreen
                         region={region}
                         setRegion={setRegion}
                         setAreaDialog={setAreaDialog}
                         markerPosition={markerPosition}
                         setMarkerPosition={setMarkerPosition}
+
 
                     />
 
@@ -64,6 +74,7 @@ export default function Home({ HomeScreen, setHomeScreen, dataScreen, setDataScr
 
                     </Dialog.Container>
 
+
                 </View>
             )
 
@@ -78,6 +89,7 @@ export default function Home({ HomeScreen, setHomeScreen, dataScreen, setDataScr
                     showSave={showSave}
                     setArea={setArea}
                     powerAmount={powerAmount}
+                    setPowerAmount={setPowerAmount}
                 />
             )
         }
@@ -102,6 +114,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#1B142F",
+        height: "100%",
+
     },
 
 })

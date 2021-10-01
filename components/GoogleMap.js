@@ -5,7 +5,7 @@ import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 
 
 
-export default function GoogleMap({ region, setRegion,markerPosition, setMarkerPosition }) {
+export default function GoogleMap({ region, setRegion, markerPosition, setMarkerPosition }) {
 
     useEffect(() => {
         getLocation();
@@ -67,7 +67,7 @@ export default function GoogleMap({ region, setRegion,markerPosition, setMarkerP
                 onPress={setMarker}
 
             >
-                <Marker coordinate={markerPosition}  pinColor="#557ded"/>
+                <Marker coordinate={markerPosition} pinColor="#557ded" />
             </MapView>
 
 
@@ -75,6 +75,7 @@ export default function GoogleMap({ region, setRegion,markerPosition, setMarkerP
                 title="Get your location"
                 onPress={getLocation}
                 color="#5950E5"
+                
 
             />
 

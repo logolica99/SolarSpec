@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableHighlight } from 'react-native';
 import GoogleMap from './GoogleMap';
+import GooglePlacesInput from './GooglePlacesInput';
 
 
 
 
 
 
-const MapScreen = ({ region, setRegion, setAreaDialog, markerPosition, setMarkerPosition }) => {
+const MapScreen = ({ region, setRegion, setAreaDialog, markerPosition, setMarkerPosition, }) => {
 
 
 
@@ -18,6 +19,7 @@ const MapScreen = ({ region, setRegion, setAreaDialog, markerPosition, setMarker
         <View style={styles.container}>
 
             <Text style={styles.Info}>Choose your location</Text>
+            <GooglePlacesInput setMarkerPosition={setMarkerPosition} setRegion={setRegion} region={region}/>
             <GoogleMap region={region} setRegion={setRegion} markerPosition={markerPosition}
                 setMarkerPosition={setMarkerPosition} />
 
@@ -36,7 +38,7 @@ const MapScreen = ({ region, setRegion, setAreaDialog, markerPosition, setMarker
 const styles = StyleSheet.create({
     container: {
         width: "100%",
-        height: "100%",
+       
 
 
 
@@ -46,7 +48,8 @@ const styles = StyleSheet.create({
         fontFamily: "montserrat-bold",
         textAlign: "center",
         fontSize: 20,
-        marginVertical: 20
+        marginVertical:20
+       
     },
     checkBtn: {
         color: "white",
