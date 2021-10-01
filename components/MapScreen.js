@@ -7,19 +7,20 @@ import GoogleMap from './GoogleMap';
 
 
 
-const MapScreen = ({ region, setRegion,setAreaDialog }) => {
+const MapScreen = ({ region, setRegion, setAreaDialog, markerPosition, setMarkerPosition }) => {
 
 
 
-    
+
 
     return (
 
         <View style={styles.container}>
-          
+
             <Text style={styles.Info}>Choose your location</Text>
-            <GoogleMap region={region} setRegion={setRegion} />
-            
+            <GoogleMap region={region} setRegion={setRegion} markerPosition={markerPosition}
+                setMarkerPosition={setMarkerPosition} />
+
 
             {/* // check button */}
             <View style={styles.checkContainer}>
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         color: "white",
         fontFamily: "montserrat-bold",
         textAlign: "center",
-        fontSize: 16,
+        fontSize: 20,
         marginVertical: 20
     },
     checkBtn: {
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
 
         paddingVertical: 10,
         paddingHorizontal: 20,
-        backgroundColor: "#593BAC",
+        backgroundColor: "#5950E5",
         borderRadius: 10,
     },
     checkContainer: {

@@ -2,22 +2,22 @@ import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
 import React from 'react';
 
 
-export default function NavBar({navigation}) {
+export default function NavBar({ navigation, setHomeScreen, setDataScreen, setAreaDialog,setArea,setShowSaveList }) {
     return (
         <View style={styles.Navbar}>
-            <TouchableHighlight style={styles.home} underlayColor='#ffffff80' onPress={() => { navigation.navigate("Home") }}>
+            <TouchableHighlight style={styles.home} underlayColor='#ffffff80' onPress={() => { navigation.navigate("Home"); setHomeScreen(true); setDataScreen(false); setAreaDialog(false);setArea(0) }}>
 
-             
 
-                    <Text style={styles.navButton}>Home</Text>
-           
+
+                <Text style={styles.navButton}>Home</Text>
+
             </TouchableHighlight>
             <View style={styles.gap}></View>
-            <TouchableHighlight style={styles.saved} underlayColor='#ffffff80' onPress={() => { navigation.navigate("Saved") }}>
+            <TouchableHighlight style={styles.saved} underlayColor='#ffffff80' onPress={() => { navigation.navigate("Saved");setShowSaveList(true) }}>
 
-    
-                    <Text style={styles.navButton} >Saved</Text>
-       
+
+                <Text style={styles.navButton} >Saved</Text>
+
             </TouchableHighlight>
 
 
@@ -28,7 +28,7 @@ export default function NavBar({navigation}) {
 
 const styles = StyleSheet.create({
     Navbar: {
-        backgroundColor: "#422B85",
+        backgroundColor: "#6941D9",
         flexDirection: "row",
 
         alignItems: "center",
@@ -47,11 +47,11 @@ const styles = StyleSheet.create({
         height: "100%",
 
     },
-    gap:{
-        backgroundColor:"white",
+    gap: {
+        backgroundColor: "white",
 
-        height:20,
-        padding:1,
+        height: 20,
+        padding: 1,
     },
     saved: {
         width: "48%",
