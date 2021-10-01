@@ -1,10 +1,40 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from 'react-native';
 import { VictoryBar, VictoryArea, VictoryChart, VictoryTheme, VictoryAxis } from "victory-native";
+import DateTimePicker from '@react-native-community/datetimepicker';
+import moment from "moment";
+import Dialog from "react-native-dialog";
+
 
 
 export default function GraphData() {
 
+    const [openDate, setOpenDate] = useState(false);
+    const [showStartDate, setShowStartDate] = useState(false);
+    const [showEndDate, setShowEndDate] = useState(false)
+    const [date, setDate] = useState(new Date(Date.now()));
+
+    const [startDate, setStartDate] = useState(null)
+    const [endDate, setEndDate] = useState(null)
+
+
+    const onStartChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShowStartDate(Platform.OS === 'ios');
+        setStartDate(currentDate);
+
+    };
+
+    const onEndChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setShowEndDate(Platform.OS === 'ios');
+        setEndDate(currentDate);
+
+    };
+
+    const doneButton = ()=>{
+        setOpenDate(false)
+    }
 
     const data = [
         { x: 1, y: 2 },
@@ -37,9 +67,43 @@ export default function GraphData() {
     return (
         <View style={styles.container}>
 
+
+            {showStartDate && (
+                <DateTimePicker
+                    value={date}
+                    mode={'date'}
+                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                    is24Hour={true}
+                    onChange={onStartChange}
+
+                />
+
+            )}
+
+            {showEndDate && (
+                <DateTimePicker
+                    value={date}
+                    mode={'date'}
+                    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+                    is24Hour={true}
+                    onChange={onEndChange}
+
+                />
+
+            )}
+
+            <Dialog.Container visible={openDate} onBackdropPress={() => setOpenDate(false)}>
+                <Dialog.Title>Enter custom time period</Dialog.Title>
+                <Dialog.Button label="Set Start Date" onPress={() => setShowStartDate(true)} />
+                <Dialog.Button label="Set End Date" onPress={() => setShowEndDate(true)} />
+                {startDate&&endDate?(
+                    <Dialog.Button onPress={doneButton} label="done"/>
+                ):<Dialog.Button onPress={()=>setOpenDate(false)} label="Cancel"/>}
+                
+            </Dialog.Container>
             <Text style={styles.title}>Solar irradiance in your area over time</Text>
 
-            <View style={{width:"100%",backgroundColor:"#1B142F"}}>
+            <View style={{ width: "100%", backgroundColor: "#1B142F" }}>
 
 
                 <VictoryChart
@@ -71,7 +135,7 @@ export default function GraphData() {
 
             <View style={{ flexDirection: "row" }}>
 
-                <TouchableOpacity style={{ marginLeft: 20, marginBottom: 30,marginTop:35 }}>
+                <TouchableOpacity style={{ marginLeft: 20, marginBottom: 30, marginTop: 35 }} onPress={() => { setOpenDate(true) }}>
                     <Text style={styles.btn}>Enter custom time period</Text>
                 </TouchableOpacity>
 
