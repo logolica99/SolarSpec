@@ -75,13 +75,13 @@ export default function GraphData({ markerPosition, setPowerAmount, powerAmount 
 
         })
 
-
-        setPowerAmount((sum / Object.keys(hello).length).toFixed(2))
-        console.log(graphData)
+        let power_data = (sum / Object.keys(hello).length).toFixed(2)
+        setPowerAmount(power_data)
+      
     }
 
     const fetchData = () => {
-        console.log(`https://power.larc.nasa.gov/api/temporal/daily/point?parameters=ALLSKY_SFC_UVA&community=RE&longitude=${markerPosition.longitude}&latitude=${markerPosition.latitude}&start=${startDate}&end=${endDate}&format=JSON`)
+       
         fetch(`https://power.larc.nasa.gov/api/temporal/daily/point?parameters=ALLSKY_SFC_UVA&community=RE&longitude=${markerPosition.longitude}&latitude=${markerPosition.latitude}&start=${startDate}&end=${endDate}&format=JSON`)
             .then(response => response.json())
             .then(response => {

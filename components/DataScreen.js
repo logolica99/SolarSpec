@@ -5,9 +5,13 @@ import { StyleSheet, Text, View, Button, ScrollView } from 'react-native';
 import Heading from './Heading';
 import PowerComponent from './PowerComponent';
 import GraphData from './GraphData';
+import FilterScreen from './FilterScreen';
 
 
 export default function DataScreen({ area, markerPosition, totalSaved, setTotalSaved, setPositions, showSave, setArea, powerAmount, setPowerAmount }) {
+
+
+
 
     if (powerAmount != 0) {
 

@@ -45,7 +45,7 @@ export default function PowerComponent({ powerAmount, area, markerPosition, tota
             positionData = {
                 "latitude": markerPosition.latitude,
                 "longitude": markerPosition.longitude,
-                "power": powerAmount * area,
+                "power": calculatePower(),
                 "unit": "w"
             }
         } else {

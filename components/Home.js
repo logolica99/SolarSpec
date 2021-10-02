@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Button, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Button, ScrollView, Alert } from 'react-native';
 import Dialog from "react-native-dialog";
 
 
@@ -25,6 +25,20 @@ export default function Home({ HomeScreen, setHomeScreen, dataScreen, setDataScr
         "longitude": region.longitude
     });
 
+    const createLightModeAlert = () => {
+        Alert.alert(
+            "Warning!",
+            "Please Turn on Light mode for best user experience",
+            [
+               
+                { text: "OK" }
+            ]
+        );
+    }
+
+    useEffect(()=>{
+        createLightModeAlert();
+    })
 
 
 
@@ -45,8 +59,6 @@ export default function Home({ HomeScreen, setHomeScreen, dataScreen, setDataScr
         if (HomeScreen) {
             return (
                 <View>
-
-
 
 
 
